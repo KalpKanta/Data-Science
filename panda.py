@@ -44,3 +44,30 @@ a = t.agg({"Age":["min", "median", "max"], "Fare":["sum", "median", "mean"]})
 print(a)
 
 print(t["Survived"].value_counts())
+print(t["Pclass"].value_counts())
+
+#grouping data categorically
+print(t[["Sex", "Age"]].groupby("Sex").max())
+print(t[["Age", "Sex"]].groupby("Sex").mean())
+print(t[["Fare", "Pclass"]].groupby("Pclass").max())
+print(t[["Fare", "Pclass"]].groupby("Pclass").mean())
+print(t.groupby("Pclass")["Name"].count())
+
+#sorting the data
+t1 = t.sort_values(by = "Age")
+print(t1[["Name", "Age"]])
+
+t2 = t.sort_values(by = "Fare", ascending = False)
+print(t2[["Name", "Fare"]])
+
+#operations for the text data
+t["Name"].str.split(",")
+t["Surname"] = t["Name"].str.split(" ").str.get(-1)
+print(t["Surname"])
+
+t["Name"].str.lower()
+t["Lowercase Name"] = t["Name"].str.lower()
+print(t["Lowercase Name"])
+
+t["Gender"] = t["Sex"].replace({"male":"M", "female":"F"})
+print(t["Gender"])
