@@ -37,3 +37,27 @@ age = np.random.randint(0,50,100)
 bins = [0,10,20,30,40,50]
 plt.hist(age, bins, rwidth = 0.8)
 plt.show()
+
+#pie chart
+hours_studied = [1,2,0.5,1.5,2,0.5,0.2]
+days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+colours = ["red", "blue", "black", "green", "yellow", "maroon", "orange"]
+plt.pie(hours_studied, labels = days, autopct = "%1.1f%%", colors = colours, startangle = 90, shadow = True, counterclock = False)
+plt.show()
+
+#stack plot
+History = [78, 100, 13, 56, 100]
+Computing = [70, 100, 1, 91, 87]
+English = [78, 100, 15, 67, 75]
+DT = [89, 100, 20, 74, 62]
+Subjects = ["History", "Computing", "English", "DT"]
+Students = ["Kalp", "Harsha", "Harry", "Ryan","Alex"]
+plt.stackplot(Students, History, Computing, English, DT, labels = Subjects)
+plt.legend()
+plt.show()
+
+#scatter graph
+x = [1,5,2,6,7,9,8]
+y = [6,3,7,1,5,8,2]
+plt.scatter(x,y, color = "black", marker = "2", label = "Scatter plot", s = 150)
+plt.show()
