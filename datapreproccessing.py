@@ -20,6 +20,22 @@ y = data.iloc[:, 3]
 print(y)
 print(X)
 
+#encoding - Label encoding
+            #data fame - 2d both rows and columns  
+            #series - 1d only rows
+
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+y = le.fit_transform(y)
+print(y)
+
 from sklearn.model_selection import train_test_split
 xtrain, xtest, ytrain, ytest = train_test_split(X, y, train_size = 0.5, random_state = 6)
 print(xtrain)
+
+print(xtrain, ytrain)
+
+
+#fit - providing the achine with info then the machine tries to learn from it
+#transform - makes changes to the data
+#fit_transform - learns from the information and also changes it
