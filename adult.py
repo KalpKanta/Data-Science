@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 cols = ["age", "workclass", "fnlwgt", "education", "education-num", "marital-status", 
         "occupation", "relationship", "race", "sex", "capital-gain", "capital-loss", 
@@ -34,3 +35,17 @@ print(average_age)
 
 gender = df.groupby(["sex", "income"])["age"].count()
 print(gender)
+
+plt.figure(figsize=(6, 4))
+gender_counts = df['sex'].value_counts()
+plt.bar(gender_counts.index, gender_counts.values, color=['blue', 'pink'])
+plt.title('Count of Men and Women')
+plt.savefig('gender_count.png')
+plt.close()
+
+top_edu = df['education'].value_counts().head(5)
+plt.bar(top_edu.index, top_edu.values, color='green')
+plt.title('Top 5 Education Levels')
+plt.xticks(rotation=45)
+plt.savefig('education_top5.png')
+plt.close()
